@@ -1,0 +1,47 @@
+syntax = "proto3";
+
+option csharp_namespace = "CoreRoom";
+
+package greet;
+
+service ControleSalasService {
+  rpc CriarBloco (RequestControleSalas) returns (BaseStatus);
+  rpc CriarSala (RequestControleSalas) returns (BaseStatus);
+  rpc ConsultarSala (RequestControleSalas) returns (BaseStatus);
+  rpc ListarSalas (RequestControleSalas) returns (BaseStatus);
+  rpc BloquearSala (RequestControleSalas) returns (BaseStatus);
+  rpc DeletarSala (RequestControleSalas) returns (BaseStatus);
+}
+service GestaoSalasService {
+  rpc ConsultarSala (RequestGestaoSalas) returns (BaseStatus);
+  rpc AlocarSala (RequestGestaoSalas) returns (BaseStatus);
+  rpc Desalocar (RequestGestaoSalas) returns (BaseStatus);
+  rpc ConsultarSalaAlocada (RequestGestaoSalas) returns (BaseStatus);
+  rpc ListarSalaAlocada (RequestGestaoSalas) returns (BaseStatus);
+}
+message RequestGestaoSalas {
+  string Bloco = 1;
+  int NumeroSala = 2;
+  string Materia = 3;
+  int Matricula = 4;
+  string professor = 5;
+  string curso = 6;
+  DateTime dataHoraInicio = 7;
+  DateTime dataHoraInicio = 8;
+}
+message RequestControleSalas {
+  string Bloco = 1;
+  int NumeroSala = 2;
+}
+
+
+message HelloReply {
+	enum enumStatus {
+		SUCESSO = 0;
+		NEGOCIO = 1;
+		SISTEMA = 2;
+	};
+  enumStatus status =1;
+  string message = 2;
+  DateTime dataResponse = 3;
+}

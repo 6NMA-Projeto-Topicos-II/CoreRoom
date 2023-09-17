@@ -1,0 +1,13 @@
+﻿{
+  "profiles": {
+    "CoreRoom": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchBrowser": false,
+      "applicationUrl": "http://localhost:5261;https://localhost:7178",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}
