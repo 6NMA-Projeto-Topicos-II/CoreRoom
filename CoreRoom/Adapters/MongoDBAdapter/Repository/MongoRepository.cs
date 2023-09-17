@@ -39,5 +39,6 @@ namespace CoreRoom.Adapters.MongoDBAdapter.Repository
 
             return ret.DeletedCount;
         }
+
     }
 }

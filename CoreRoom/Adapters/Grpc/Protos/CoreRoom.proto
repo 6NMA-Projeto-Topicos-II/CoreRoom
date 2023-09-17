@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-import "google/protobuf/timestamp.proto";
+
 
 option csharp_namespace = "CoreRoom";
 
@@ -28,8 +28,8 @@ message RequestGestaoSalas {
   int32 Matricula = 4;
   string professor = 5;
   string curso = 6;
-  google.protobuf.Timestamp dataHoraInicio = 7;
-  google.protobuf.Timestamp dataHoraFim = 8;
+  string dataHoraInicio = 7;
+  string dataHoraFim = 8;
 }
 message RequestControleSalas {
   string Bloco = 1;
@@ -45,5 +45,5 @@ message BaseStatus {
 	};
   enumStatus status =1;
   string message = 2;
-  google.protobuf.Timestamp dataResponse = 3;
+  string dataResponse = 3;
 }

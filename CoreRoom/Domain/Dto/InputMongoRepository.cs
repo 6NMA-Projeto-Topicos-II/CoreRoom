@@ -1,14 +1,15 @@
 ﻿namespace CoreRoom.Domain.Dto
 {
-    public struct InputMongoRepository
+    public record InputMongoRepository
     {
-        public string bloco { get; set; }
-        public int numeroSala { get; set; }
-        public string materia { get; set; }
-        public int matricula { get; set; }
-        public string professor { get; set; }
-        public string curso { get; set; }
-        public DateTime dataHoraInicio { get; set; }
-        public DateTime dataHoraFim { get; set; }
+        public string id { get; set; } = null!;
+        public string bloco { get; set; } = null!;
+        public int numeroSala { get; set; } = 0;
+        public string materia { get; set; } = null!;
+        public int matricula { get; set; } = 0;
+        public string professor { get; set; } = null!;
+        public string curso { get; set; } = null!;
+        public DateTime? dataHoraInicio { get; set; } = null!;
+        public DateTime? dataHoraFim { get; set; } = null!;
     }
 }

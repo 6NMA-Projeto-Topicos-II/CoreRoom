@@ -1,3 +1,0 @@
-obj\Debug\net6.0\Adapters\Grpc\Protos/Greet.cs \
-obj\Debug\net6.0\Adapters\Grpc\Protos/GreetGrpc.cs: C:/Users/renzo/.nuget/packages/grpc.tools/2.40.0/build/native/include/google/protobuf/timestamp.proto\
- Adapters/Grpc/Protos/greet.proto
