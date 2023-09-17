@@ -18,9 +18,7 @@
 
   <ItemGroup>
     <Folder Include="Application\" />
-    <Folder Include="Domain\" />
     <Folder Include="Ports\InputboundPort\" />
-    <Folder Include="Ports\OutboundPort\" />
   </ItemGroup>
 
 </Project>

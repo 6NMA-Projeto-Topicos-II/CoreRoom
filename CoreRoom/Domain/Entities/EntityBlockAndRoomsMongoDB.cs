@@ -1,12 +1,14 @@
 ﻿using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 
-namespace CoreRoom.Adapters.MongoDBAdapter.EntitiesMongo
+namespace CoreRoom.Domain.Entities
 {
-    public record EntityBlockAndRooms
+    public class EntityBlockAndRoomsMongoDB
     {
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
+        public string id { get; set; }
+        [BsonElement("Bloco")]
         public string Bloco { get; set; }
         [BsonElement("Responsavel")]
         public string Responsavel { get; set; }
@@ -18,7 +20,7 @@ namespace CoreRoom.Adapters.MongoDBAdapter.EntitiesMongo
         public IList<Floorinformation> Andar01 { get; set; }
 
     }
-    public record Floorinformation
+    public class Floorinformation
     {
         [BsonElement("NumeroSala")]
         public int NumeroSala { get; set; }
