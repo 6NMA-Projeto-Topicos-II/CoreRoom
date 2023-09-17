@@ -24,34 +24,57 @@ namespace CoreRoom {
     static GreetReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "CiBBZGFwdGVycy9HcnBjL1Byb3Rvcy9ncmVldC5wcm90bxIFZ3JlZXQiHAoM",
-            "SGVsbG9SZXF1ZXN0EgwKBG5hbWUYASABKAkiHQoKSGVsbG9SZXBseRIPCgdt",
-            "ZXNzYWdlGAEgASgJMj0KB0dyZWV0ZXISMgoIU2F5SGVsbG8SEy5ncmVldC5I",
-            "ZWxsb1JlcXVlc3QaES5ncmVldC5IZWxsb1JlcGx5QguqAghDb3JlUm9vbWIG",
-            "cHJvdG8z"));
+            "CiBBZGFwdGVycy9HcnBjL1Byb3Rvcy9ncmVldC5wcm90bxIFZ3JlZXQaH2dv",
+            "b2dsZS9wcm90b2J1Zi90aW1lc3RhbXAucHJvdG8i4gEKElJlcXVlc3RHZXN0",
+            "YW9TYWxhcxINCgVCbG9jbxgBIAEoCRISCgpOdW1lcm9TYWxhGAIgASgFEg8K",
+            "B01hdGVyaWEYAyABKAkSEQoJTWF0cmljdWxhGAQgASgFEhEKCXByb2Zlc3Nv",
+            "chgFIAEoCRINCgVjdXJzbxgGIAEoCRIyCg5kYXRhSG9yYUluaWNpbxgHIAEo",
+            "CzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXASLwoLZGF0YUhvcmFGaW0Y",
+            "CCABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wIjkKFFJlcXVlc3RD",
+            "b250cm9sZVNhbGFzEg0KBUJsb2NvGAEgASgJEhIKCk51bWVyb1NhbGEYAiAB",
+            "KAUisgEKCkJhc2VTdGF0dXMSLAoGc3RhdHVzGAEgASgOMhwuZ3JlZXQuQmFz",
+            "ZVN0YXR1cy5lbnVtU3RhdHVzEg8KB21lc3NhZ2UYAiABKAkSMAoMZGF0YVJl",
+            "c3BvbnNlGAMgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcCIzCgpl",
+            "bnVtU3RhdHVzEgsKB1NVQ0VTU08QABILCgdORUdPQ0lPEAESCwoHU0lTVEVN",
+            "QRACMpADChRDb250cm9sZVNhbGFzU2VydmljZRI8CgpDcmlhckJsb2NvEhsu",
+            "Z3JlZXQuUmVxdWVzdENvbnRyb2xlU2FsYXMaES5ncmVldC5CYXNlU3RhdHVz",
+            "EjsKCUNyaWFyU2FsYRIbLmdyZWV0LlJlcXVlc3RDb250cm9sZVNhbGFzGhEu",
+            "Z3JlZXQuQmFzZVN0YXR1cxI/Cg1Db25zdWx0YXJTYWxhEhsuZ3JlZXQuUmVx",
+            "dWVzdENvbnRyb2xlU2FsYXMaES5ncmVldC5CYXNlU3RhdHVzEj0KC0xpc3Rh",
+            "clNhbGFzEhsuZ3JlZXQuUmVxdWVzdENvbnRyb2xlU2FsYXMaES5ncmVldC5C",
+            "YXNlU3RhdHVzEj4KDEJsb3F1ZWFyU2FsYRIbLmdyZWV0LlJlcXVlc3RDb250",
+            "cm9sZVNhbGFzGhEuZ3JlZXQuQmFzZVN0YXR1cxI9CgtEZWxldGFyU2FsYRIb",
+            "LmdyZWV0LlJlcXVlc3RDb250cm9sZVNhbGFzGhEuZ3JlZXQuQmFzZVN0YXR1",
+            "czLTAgoSR2VzdGFvU2FsYXNTZXJ2aWNlEj0KDUNvbnN1bHRhclNhbGESGS5n",
+            "cmVldC5SZXF1ZXN0R2VzdGFvU2FsYXMaES5ncmVldC5CYXNlU3RhdHVzEjoK",
+            "CkFsb2NhclNhbGESGS5ncmVldC5SZXF1ZXN0R2VzdGFvU2FsYXMaES5ncmVl",
+            "dC5CYXNlU3RhdHVzEjkKCURlc2Fsb2NhchIZLmdyZWV0LlJlcXVlc3RHZXN0",
+            "YW9TYWxhcxoRLmdyZWV0LkJhc2VTdGF0dXMSRAoUQ29uc3VsdGFyU2FsYUFs",
+            "b2NhZGESGS5ncmVldC5SZXF1ZXN0R2VzdGFvU2FsYXMaES5ncmVldC5CYXNl",
+            "U3RhdHVzEkEKEUxpc3RhclNhbGFBbG9jYWRhEhkuZ3JlZXQuUmVxdWVzdEdl",
+            "c3Rhb1NhbGFzGhEuZ3JlZXQuQmFzZVN0YXR1c0ILqgIIQ29yZVJvb21iBnBy",
+            "b3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { },
+          new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::CoreRoom.HelloRequest), global::CoreRoom.HelloRequest.Parser, new[]{ "Name" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::CoreRoom.HelloReply), global::CoreRoom.HelloReply.Parser, new[]{ "Message" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::CoreRoom.RequestGestaoSalas), global::CoreRoom.RequestGestaoSalas.Parser, new[]{ "Bloco", "NumeroSala", "Materia", "Matricula", "Professor", "Curso", "DataHoraInicio", "DataHoraFim" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::CoreRoom.RequestControleSalas), global::CoreRoom.RequestControleSalas.Parser, new[]{ "Bloco", "NumeroSala" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::CoreRoom.BaseStatus), global::CoreRoom.BaseStatus.Parser, new[]{ "Status", "Message", "DataResponse" }, null, new[]{ typeof(global::CoreRoom.BaseStatus.Types.enumStatus) }, null, null)
           }));
     }
     #endregion
 
   }
   #region Messages
-  /// <summary>
-  /// The request message containing the user's name.
-  /// </summary>
-  public sealed partial class HelloRequest : pb::IMessage<HelloRequest>
+  public sealed partial class RequestGestaoSalas : pb::IMessage<RequestGestaoSalas>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
   #endif
   {
-    private static readonly pb::MessageParser<HelloRequest> _parser = new pb::MessageParser<HelloRequest>(() => new HelloRequest());
+    private static readonly pb::MessageParser<RequestGestaoSalas> _parser = new pb::MessageParser<RequestGestaoSalas>(() => new RequestGestaoSalas());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<HelloRequest> Parser { get { return _parser; } }
+    public static pb::MessageParser<RequestGestaoSalas> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
@@ -64,55 +87,153 @@ namespace CoreRoom {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public HelloRequest() {
+    public RequestGestaoSalas() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public HelloRequest(HelloRequest other) : this() {
-      name_ = other.name_;
+    public RequestGestaoSalas(RequestGestaoSalas other) : this() {
+      bloco_ = other.bloco_;
+      numeroSala_ = other.numeroSala_;
+      materia_ = other.materia_;
+      matricula_ = other.matricula_;
+      professor_ = other.professor_;
+      curso_ = other.curso_;
+      dataHoraInicio_ = other.dataHoraInicio_ != null ? other.dataHoraInicio_.Clone() : null;
+      dataHoraFim_ = other.dataHoraFim_ != null ? other.dataHoraFim_.Clone() : null;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public HelloRequest Clone() {
-      return new HelloRequest(this);
+    public RequestGestaoSalas Clone() {
+      return new RequestGestaoSalas(this);
     }
 
-    /// <summary>Field number for the "name" field.</summary>
-    public const int NameFieldNumber = 1;
-    private string name_ = "";
+    /// <summary>Field number for the "Bloco" field.</summary>
+    public const int BlocoFieldNumber = 1;
+    private string bloco_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string Name {
-      get { return name_; }
+    public string Bloco {
+      get { return bloco_; }
       set {
-        name_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        bloco_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "NumeroSala" field.</summary>
+    public const int NumeroSalaFieldNumber = 2;
+    private int numeroSala_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int NumeroSala {
+      get { return numeroSala_; }
+      set {
+        numeroSala_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "Materia" field.</summary>
+    public const int MateriaFieldNumber = 3;
+    private string materia_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Materia {
+      get { return materia_; }
+      set {
+        materia_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "Matricula" field.</summary>
+    public const int MatriculaFieldNumber = 4;
+    private int matricula_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int Matricula {
+      get { return matricula_; }
+      set {
+        matricula_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "professor" field.</summary>
+    public const int ProfessorFieldNumber = 5;
+    private string professor_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Professor {
+      get { return professor_; }
+      set {
+        professor_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "curso" field.</summary>
+    public const int CursoFieldNumber = 6;
+    private string curso_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Curso {
+      get { return curso_; }
+      set {
+        curso_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "dataHoraInicio" field.</summary>
+    public const int DataHoraInicioFieldNumber = 7;
+    private global::Google.Protobuf.WellKnownTypes.Timestamp dataHoraInicio_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Google.Protobuf.WellKnownTypes.Timestamp DataHoraInicio {
+      get { return dataHoraInicio_; }
+      set {
+        dataHoraInicio_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "dataHoraFim" field.</summary>
+    public const int DataHoraFimFieldNumber = 8;
+    private global::Google.Protobuf.WellKnownTypes.Timestamp dataHoraFim_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Google.Protobuf.WellKnownTypes.Timestamp DataHoraFim {
+      get { return dataHoraFim_; }
+      set {
+        dataHoraFim_ = value;
       }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
-      return Equals(other as HelloRequest);
+      return Equals(other as RequestGestaoSalas);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(HelloRequest other) {
+    public bool Equals(RequestGestaoSalas other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (Name != other.Name) return false;
+      if (Bloco != other.Bloco) return false;
+      if (NumeroSala != other.NumeroSala) return false;
+      if (Materia != other.Materia) return false;
+      if (Matricula != other.Matricula) return false;
+      if (Professor != other.Professor) return false;
+      if (Curso != other.Curso) return false;
+      if (!object.Equals(DataHoraInicio, other.DataHoraInicio)) return false;
+      if (!object.Equals(DataHoraFim, other.DataHoraFim)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
-      if (Name.Length != 0) hash ^= Name.GetHashCode();
+      if (Bloco.Length != 0) hash ^= Bloco.GetHashCode();
+      if (NumeroSala != 0) hash ^= NumeroSala.GetHashCode();
+      if (Materia.Length != 0) hash ^= Materia.GetHashCode();
+      if (Matricula != 0) hash ^= Matricula.GetHashCode();
+      if (Professor.Length != 0) hash ^= Professor.GetHashCode();
+      if (Curso.Length != 0) hash ^= Curso.GetHashCode();
+      if (dataHoraInicio_ != null) hash ^= DataHoraInicio.GetHashCode();
+      if (dataHoraFim_ != null) hash ^= DataHoraFim.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -129,9 +250,37 @@ namespace CoreRoom {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (Name.Length != 0) {
+      if (Bloco.Length != 0) {
         output.WriteRawTag(10);
-        output.WriteString(Name);
+        output.WriteString(Bloco);
+      }
+      if (NumeroSala != 0) {
+        output.WriteRawTag(16);
+        output.WriteInt32(NumeroSala);
+      }
+      if (Materia.Length != 0) {
+        output.WriteRawTag(26);
+        output.WriteString(Materia);
+      }
+      if (Matricula != 0) {
+        output.WriteRawTag(32);
+        output.WriteInt32(Matricula);
+      }
+      if (Professor.Length != 0) {
+        output.WriteRawTag(42);
+        output.WriteString(Professor);
+      }
+      if (Curso.Length != 0) {
+        output.WriteRawTag(50);
+        output.WriteString(Curso);
+      }
+      if (dataHoraInicio_ != null) {
+        output.WriteRawTag(58);
+        output.WriteMessage(DataHoraInicio);
+      }
+      if (dataHoraFim_ != null) {
+        output.WriteRawTag(66);
+        output.WriteMessage(DataHoraFim);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -142,9 +291,37 @@ namespace CoreRoom {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (Name.Length != 0) {
+      if (Bloco.Length != 0) {
         output.WriteRawTag(10);
-        output.WriteString(Name);
+        output.WriteString(Bloco);
+      }
+      if (NumeroSala != 0) {
+        output.WriteRawTag(16);
+        output.WriteInt32(NumeroSala);
+      }
+      if (Materia.Length != 0) {
+        output.WriteRawTag(26);
+        output.WriteString(Materia);
+      }
+      if (Matricula != 0) {
+        output.WriteRawTag(32);
+        output.WriteInt32(Matricula);
+      }
+      if (Professor.Length != 0) {
+        output.WriteRawTag(42);
+        output.WriteString(Professor);
+      }
+      if (Curso.Length != 0) {
+        output.WriteRawTag(50);
+        output.WriteString(Curso);
+      }
+      if (dataHoraInicio_ != null) {
+        output.WriteRawTag(58);
+        output.WriteMessage(DataHoraInicio);
+      }
+      if (dataHoraFim_ != null) {
+        output.WriteRawTag(66);
+        output.WriteMessage(DataHoraFim);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -155,8 +332,29 @@ namespace CoreRoom {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
-      if (Name.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Name);
+      if (Bloco.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Bloco);
+      }
+      if (NumeroSala != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(NumeroSala);
+      }
+      if (Materia.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Materia);
+      }
+      if (Matricula != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Matricula);
+      }
+      if (Professor.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Professor);
+      }
+      if (Curso.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Curso);
+      }
+      if (dataHoraInicio_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(DataHoraInicio);
+      }
+      if (dataHoraFim_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(DataHoraFim);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -165,12 +363,39 @@ namespace CoreRoom {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(HelloRequest other) {
+    public void MergeFrom(RequestGestaoSalas other) {
       if (other == null) {
         return;
       }
-      if (other.Name.Length != 0) {
-        Name = other.Name;
+      if (other.Bloco.Length != 0) {
+        Bloco = other.Bloco;
+      }
+      if (other.NumeroSala != 0) {
+        NumeroSala = other.NumeroSala;
+      }
+      if (other.Materia.Length != 0) {
+        Materia = other.Materia;
+      }
+      if (other.Matricula != 0) {
+        Matricula = other.Matricula;
+      }
+      if (other.Professor.Length != 0) {
+        Professor = other.Professor;
+      }
+      if (other.Curso.Length != 0) {
+        Curso = other.Curso;
+      }
+      if (other.dataHoraInicio_ != null) {
+        if (dataHoraInicio_ == null) {
+          DataHoraInicio = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+        }
+        DataHoraInicio.MergeFrom(other.DataHoraInicio);
+      }
+      if (other.dataHoraFim_ != null) {
+        if (dataHoraFim_ == null) {
+          DataHoraFim = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+        }
+        DataHoraFim.MergeFrom(other.DataHoraFim);
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -187,7 +412,41 @@ namespace CoreRoom {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 10: {
-            Name = input.ReadString();
+            Bloco = input.ReadString();
+            break;
+          }
+          case 16: {
+            NumeroSala = input.ReadInt32();
+            break;
+          }
+          case 26: {
+            Materia = input.ReadString();
+            break;
+          }
+          case 32: {
+            Matricula = input.ReadInt32();
+            break;
+          }
+          case 42: {
+            Professor = input.ReadString();
+            break;
+          }
+          case 50: {
+            Curso = input.ReadString();
+            break;
+          }
+          case 58: {
+            if (dataHoraInicio_ == null) {
+              DataHoraInicio = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+            }
+            input.ReadMessage(DataHoraInicio);
+            break;
+          }
+          case 66: {
+            if (dataHoraFim_ == null) {
+              DataHoraFim = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+            }
+            input.ReadMessage(DataHoraFim);
             break;
           }
         }
@@ -205,7 +464,41 @@ namespace CoreRoom {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
           case 10: {
-            Name = input.ReadString();
+            Bloco = input.ReadString();
+            break;
+          }
+          case 16: {
+            NumeroSala = input.ReadInt32();
+            break;
+          }
+          case 26: {
+            Materia = input.ReadString();
+            break;
+          }
+          case 32: {
+            Matricula = input.ReadInt32();
+            break;
+          }
+          case 42: {
+            Professor = input.ReadString();
+            break;
+          }
+          case 50: {
+            Curso = input.ReadString();
+            break;
+          }
+          case 58: {
+            if (dataHoraInicio_ == null) {
+              DataHoraInicio = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+            }
+            input.ReadMessage(DataHoraInicio);
+            break;
+          }
+          case 66: {
+            if (dataHoraFim_ == null) {
+              DataHoraFim = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+            }
+            input.ReadMessage(DataHoraFim);
             break;
           }
         }
@@ -215,18 +508,15 @@ namespace CoreRoom {
 
   }
 
-  /// <summary>
-  /// The response message containing the greetings.
-  /// </summary>
-  public sealed partial class HelloReply : pb::IMessage<HelloReply>
+  public sealed partial class RequestControleSalas : pb::IMessage<RequestControleSalas>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
   #endif
   {
-    private static readonly pb::MessageParser<HelloReply> _parser = new pb::MessageParser<HelloReply>(() => new HelloReply());
+    private static readonly pb::MessageParser<RequestControleSalas> _parser = new pb::MessageParser<RequestControleSalas>(() => new RequestControleSalas());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<HelloReply> Parser { get { return _parser; } }
+    public static pb::MessageParser<RequestControleSalas> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
@@ -239,55 +529,69 @@ namespace CoreRoom {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public HelloReply() {
+    public RequestControleSalas() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public HelloReply(HelloReply other) : this() {
-      message_ = other.message_;
+    public RequestControleSalas(RequestControleSalas other) : this() {
+      bloco_ = other.bloco_;
+      numeroSala_ = other.numeroSala_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public HelloReply Clone() {
-      return new HelloReply(this);
+    public RequestControleSalas Clone() {
+      return new RequestControleSalas(this);
     }
 
-    /// <summary>Field number for the "message" field.</summary>
-    public const int MessageFieldNumber = 1;
-    private string message_ = "";
+    /// <summary>Field number for the "Bloco" field.</summary>
+    public const int BlocoFieldNumber = 1;
+    private string bloco_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string Message {
-      get { return message_; }
+    public string Bloco {
+      get { return bloco_; }
       set {
-        message_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        bloco_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "NumeroSala" field.</summary>
+    public const int NumeroSalaFieldNumber = 2;
+    private int numeroSala_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int NumeroSala {
+      get { return numeroSala_; }
+      set {
+        numeroSala_ = value;
       }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
-      return Equals(other as HelloReply);
+      return Equals(other as RequestControleSalas);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(HelloReply other) {
+    public bool Equals(RequestControleSalas other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (Message != other.Message) return false;
+      if (Bloco != other.Bloco) return false;
+      if (NumeroSala != other.NumeroSala) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
-      if (Message.Length != 0) hash ^= Message.GetHashCode();
+      if (Bloco.Length != 0) hash ^= Bloco.GetHashCode();
+      if (NumeroSala != 0) hash ^= NumeroSala.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -304,9 +608,13 @@ namespace CoreRoom {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (Message.Length != 0) {
+      if (Bloco.Length != 0) {
         output.WriteRawTag(10);
-        output.WriteString(Message);
+        output.WriteString(Bloco);
+      }
+      if (NumeroSala != 0) {
+        output.WriteRawTag(16);
+        output.WriteInt32(NumeroSala);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -317,9 +625,13 @@ namespace CoreRoom {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (Message.Length != 0) {
+      if (Bloco.Length != 0) {
         output.WriteRawTag(10);
-        output.WriteString(Message);
+        output.WriteString(Bloco);
+      }
+      if (NumeroSala != 0) {
+        output.WriteRawTag(16);
+        output.WriteInt32(NumeroSala);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -330,8 +642,11 @@ namespace CoreRoom {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
-      if (Message.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Message);
+      if (Bloco.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Bloco);
+      }
+      if (NumeroSala != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(NumeroSala);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -340,12 +655,15 @@ namespace CoreRoom {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(HelloReply other) {
+    public void MergeFrom(RequestControleSalas other) {
       if (other == null) {
         return;
       }
-      if (other.Message.Length != 0) {
-        Message = other.Message;
+      if (other.Bloco.Length != 0) {
+        Bloco = other.Bloco;
+      }
+      if (other.NumeroSala != 0) {
+        NumeroSala = other.NumeroSala;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -362,7 +680,11 @@ namespace CoreRoom {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 10: {
-            Message = input.ReadString();
+            Bloco = input.ReadString();
+            break;
+          }
+          case 16: {
+            NumeroSala = input.ReadInt32();
             break;
           }
         }
@@ -380,13 +702,283 @@ namespace CoreRoom {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
           case 10: {
-            Message = input.ReadString();
+            Bloco = input.ReadString();
+            break;
+          }
+          case 16: {
+            NumeroSala = input.ReadInt32();
             break;
           }
         }
       }
     }
     #endif
+
+  }
+
+  public sealed partial class BaseStatus : pb::IMessage<BaseStatus>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<BaseStatus> _parser = new pb::MessageParser<BaseStatus>(() => new BaseStatus());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<BaseStatus> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::CoreRoom.GreetReflection.Descriptor.MessageTypes[2]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public BaseStatus() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public BaseStatus(BaseStatus other) : this() {
+      status_ = other.status_;
+      message_ = other.message_;
+      dataResponse_ = other.dataResponse_ != null ? other.dataResponse_.Clone() : null;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public BaseStatus Clone() {
+      return new BaseStatus(this);
+    }
+
+    /// <summary>Field number for the "status" field.</summary>
+    public const int StatusFieldNumber = 1;
+    private global::CoreRoom.BaseStatus.Types.enumStatus status_ = global::CoreRoom.BaseStatus.Types.enumStatus.Sucesso;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::CoreRoom.BaseStatus.Types.enumStatus Status {
+      get { return status_; }
+      set {
+        status_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "message" field.</summary>
+    public const int MessageFieldNumber = 2;
+    private string message_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Message {
+      get { return message_; }
+      set {
+        message_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "dataResponse" field.</summary>
+    public const int DataResponseFieldNumber = 3;
+    private global::Google.Protobuf.WellKnownTypes.Timestamp dataResponse_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Google.Protobuf.WellKnownTypes.Timestamp DataResponse {
+      get { return dataResponse_; }
+      set {
+        dataResponse_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as BaseStatus);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(BaseStatus other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Status != other.Status) return false;
+      if (Message != other.Message) return false;
+      if (!object.Equals(DataResponse, other.DataResponse)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Status != global::CoreRoom.BaseStatus.Types.enumStatus.Sucesso) hash ^= Status.GetHashCode();
+      if (Message.Length != 0) hash ^= Message.GetHashCode();
+      if (dataResponse_ != null) hash ^= DataResponse.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (Status != global::CoreRoom.BaseStatus.Types.enumStatus.Sucesso) {
+        output.WriteRawTag(8);
+        output.WriteEnum((int) Status);
+      }
+      if (Message.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(Message);
+      }
+      if (dataResponse_ != null) {
+        output.WriteRawTag(26);
+        output.WriteMessage(DataResponse);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (Status != global::CoreRoom.BaseStatus.Types.enumStatus.Sucesso) {
+        output.WriteRawTag(8);
+        output.WriteEnum((int) Status);
+      }
+      if (Message.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(Message);
+      }
+      if (dataResponse_ != null) {
+        output.WriteRawTag(26);
+        output.WriteMessage(DataResponse);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (Status != global::CoreRoom.BaseStatus.Types.enumStatus.Sucesso) {
+        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Status);
+      }
+      if (Message.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Message);
+      }
+      if (dataResponse_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(DataResponse);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(BaseStatus other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Status != global::CoreRoom.BaseStatus.Types.enumStatus.Sucesso) {
+        Status = other.Status;
+      }
+      if (other.Message.Length != 0) {
+        Message = other.Message;
+      }
+      if (other.dataResponse_ != null) {
+        if (dataResponse_ == null) {
+          DataResponse = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+        }
+        DataResponse.MergeFrom(other.DataResponse);
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            Status = (global::CoreRoom.BaseStatus.Types.enumStatus) input.ReadEnum();
+            break;
+          }
+          case 18: {
+            Message = input.ReadString();
+            break;
+          }
+          case 26: {
+            if (dataResponse_ == null) {
+              DataResponse = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+            }
+            input.ReadMessage(DataResponse);
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 8: {
+            Status = (global::CoreRoom.BaseStatus.Types.enumStatus) input.ReadEnum();
+            break;
+          }
+          case 18: {
+            Message = input.ReadString();
+            break;
+          }
+          case 26: {
+            if (dataResponse_ == null) {
+              DataResponse = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+            }
+            input.ReadMessage(DataResponse);
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+    #region Nested types
+    /// <summary>Container for nested types declared in the BaseStatus message type.</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static partial class Types {
+      public enum enumStatus {
+        [pbr::OriginalName("SUCESSO")] Sucesso = 0,
+        [pbr::OriginalName("NEGOCIO")] Negocio = 1,
+        [pbr::OriginalName("SISTEMA")] Sistema = 2,
+      }
+
+    }
+    #endregion
 
   }
 

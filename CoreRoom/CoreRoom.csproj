@@ -12,13 +12,16 @@
 
   <ItemGroup>
     <PackageReference Include="Grpc.AspNetCore" Version="2.40.0" />
+    <PackageReference Include="MongoDB.Bson" Version="2.21.0" />
+    <PackageReference Include="MongoDB.Driver" Version="2.21.0" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Application\" />
     <Folder Include="Domain\" />
     <Folder Include="Infrastructure\" />
-    <Folder Include="Ports\" />
+    <Folder Include="Ports\InputboundPort\" />
+    <Folder Include="Ports\OutboundPort\" />
   </ItemGroup>
 
 </Project>

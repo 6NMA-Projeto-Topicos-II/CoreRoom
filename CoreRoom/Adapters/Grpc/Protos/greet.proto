@@ -1,5 +1,7 @@
 syntax = "proto3";
 
+import "google/protobuf/timestamp.proto";
+
 option csharp_namespace = "CoreRoom";
 
 package greet;
@@ -21,21 +23,21 @@ service GestaoSalasService {
 }
 message RequestGestaoSalas {
   string Bloco = 1;
-  int NumeroSala = 2;
+  int32 NumeroSala = 2;
   string Materia = 3;
-  int Matricula = 4;
+  int32 Matricula = 4;
   string professor = 5;
   string curso = 6;
-  DateTime dataHoraInicio = 7;
-  DateTime dataHoraInicio = 8;
+  google.protobuf.Timestamp dataHoraInicio = 7;
+  google.protobuf.Timestamp dataHoraFim = 8;
 }
 message RequestControleSalas {
   string Bloco = 1;
-  int NumeroSala = 2;
+  int32 NumeroSala = 2;
 }
 
 
-message HelloReply {
+message BaseStatus {
 	enum enumStatus {
 		SUCESSO = 0;
 		NEGOCIO = 1;
@@ -43,5 +45,5 @@ message HelloReply {
 	};
   enumStatus status =1;
   string message = 2;
-  DateTime dataResponse = 3;
+  google.protobuf.Timestamp dataResponse = 3;
 }

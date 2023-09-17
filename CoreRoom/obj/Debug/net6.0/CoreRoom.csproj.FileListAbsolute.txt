@@ -1,0 +1,6 @@
+C:\Users\renzo\Documents\Projeto topicos Integradores\CoreRoom\CoreRoom\obj\Debug\net6.0\CoreRoom.csproj.AssemblyReference.cache
+C:\Users\renzo\Documents\Projeto topicos Integradores\CoreRoom\CoreRoom\obj\Debug\net6.0\CoreRoom.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\renzo\Documents\Projeto topicos Integradores\CoreRoom\CoreRoom\obj\Debug\net6.0\CoreRoom.AssemblyInfoInputs.cache
+C:\Users\renzo\Documents\Projeto topicos Integradores\CoreRoom\CoreRoom\obj\Debug\net6.0\CoreRoom.AssemblyInfo.cs
+C:\Users\renzo\Documents\Projeto topicos Integradores\CoreRoom\CoreRoom\obj\Debug\net6.0\CoreRoom.csproj.CoreCompileInputs.cache
+C:\Users\renzo\Documents\Projeto topicos Integradores\CoreRoom\CoreRoom\obj\Debug\net6.0\CoreRoom.MvcApplicationPartsAssemblyInfo.cache
