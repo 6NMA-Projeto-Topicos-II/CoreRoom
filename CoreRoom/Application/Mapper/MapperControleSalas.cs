@@ -1,4 +1,5 @@
-﻿using CoreRoom.Domain.Dto.ControleSalasDto;
+﻿using CoreRoom.Domain.Dto;
+using CoreRoom.Domain.Dto.ControleSalasDto;
 
 namespace CoreRoom.Application.Mapper
 {
@@ -10,6 +11,13 @@ namespace CoreRoom.Application.Mapper
             {
                 Bloco = requestControleSalas.Bloco,
                 Sala = requestControleSalas.NumeroSala
+            };
+        }
+        public static InputMongoRepository ForRepository(inputControleSalas input)
+        {
+            return new InputMongoRepository
+            {
+                bloco = input.Bloco
             };
         }
     }
