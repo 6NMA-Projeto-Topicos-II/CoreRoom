@@ -16,12 +16,14 @@ namespace CoreRoom.Domain.Entities
         public int Andares { get; set; }
         [BsonElement("NumeroDeSalas")]
         public int NumeroDeSalas { get; set; }
-        [BsonElement("Andar01")]
-        public IList<Floorinformation> Andar01 { get; set; }
+        [BsonElement("InfAndares")]
+        public IList<Floorinformation> InfAndares { get; set; }
 
     }
     public class Floorinformation
     {
+        [BsonElement("Andar")]
+        public int Andar { get; set; }
         [BsonElement("NumeroSala")]
         public int NumeroSala { get; set; }
         [BsonElement("Laboratorio")]

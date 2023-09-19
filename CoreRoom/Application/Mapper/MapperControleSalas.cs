@@ -5,19 +5,20 @@ namespace CoreRoom.Application.Mapper
 {
     public static class MapperControleSalas
     {
-        public static inputControleSalas ForUseCase(RequestControleSalas requestControleSalas)
+        public static inputControleSalas ForUseCase(BodyRequestSala requestControleSalas)
         {
             return new inputControleSalas
             {
-                Bloco = requestControleSalas.Bloco,
-                Sala = requestControleSalas.NumeroSala
+                Bloco =char.Parse( requestControleSalas.Bloco),
+                NumeroAndares= requestControleSalas.,
+
             };
         }
         public static InputMongoRepository ForRepository(inputControleSalas input)
         {
             return new InputMongoRepository
             {
-                bloco = input.Bloco
+                bloco = char.Parse(input.Bloco)
             };
         }
     }

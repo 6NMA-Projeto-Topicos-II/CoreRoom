@@ -4,37 +4,45 @@ syntax = "proto3";
 
 option csharp_namespace = "CoreRoom";
 
-package greet;
+package CoreRoomServices;
 
 service ControleSalasService {
-  rpc CriarBloco (RequestControleSalas) returns (BaseStatus);
-  rpc CriarSala (RequestControleSalas) returns (BaseStatus);
-  rpc ConsultarSala (RequestControleSalas) returns (BaseStatus);
-  rpc ListarSalas (RequestControleSalas) returns (BaseStatus);
-  rpc BloquearSala (RequestControleSalas) returns (BaseStatus);
-  rpc DeletarSala (RequestControleSalas) returns (BaseStatus);
+  rpc CriarBloco (BodyRequestSala) returns (BaseStatus);
+  rpc CriarSala (BodyRequestSala) returns (BaseStatus);
+  rpc ConsultarSala (BodyRequestSala) returns (BaseStatus);
+  rpc ListarSalas (BodyRequestSala) returns (BaseStatus);
+  rpc BloquearSala (BodyRequestSala) returns (BaseStatus);
+  rpc DeletarSala (BodyRequestSala) returns (BaseStatus);
 }
 service GestaoSalasService {
-  rpc ConsultarSala (RequestGestaoSalas) returns (BaseStatus);
-  rpc AlocarSala (RequestGestaoSalas) returns (BaseStatus);
-  rpc Desalocar (RequestGestaoSalas) returns (BaseStatus);
-  rpc ConsultarSalaAlocada (RequestGestaoSalas) returns (BaseStatus);
-  rpc ListarSalaAlocada (RequestGestaoSalas) returns (BaseStatus);
+  rpc ConsultarSala (BodyRequestSala) returns (BaseStatus);
+  rpc AlocarSala (BodyRequestSala) returns (BaseStatus);
+  rpc Desalocar (BodyRequestSala) returns (BaseStatus);
+  rpc ConsultarSalaAlocada (BodyRequestSala) returns (BaseStatus);
+  rpc ListarSalaAlocada (BodyRequestSala) returns (BaseStatus);
 }
-message RequestGestaoSalas {
+message BodyRequestSala{
   string Bloco = 1;
-  int32 NumeroSala = 2;
-  string Materia = 3;
-  int32 Matricula = 4;
-  string professor = 5;
-  string curso = 6;
-  string dataHoraInicio = 7;
-  string dataHoraFim = 8;
+  int32 numeroDeAndares = 2;
+  int32 numeroDeSalas = 3;
+  string nomeResponsavel = 4;
+  AndarInformation InfAndar = 5;
+
 }
-message RequestControleSalas {
-  string Bloco = 1;
+message AndarInformation{
+  int32 NumeroDoAndar = 1;
   int32 NumeroSala = 2;
+  bool Laboratorio = 3;
+  bool Auditorio = 4;
+  bool bloqueada = 5;
+  string Materia = 6;
+  string professor = 7;
+  string curso = 8;
+  int32 capacidadeDeAlunos = 9;
+  string dataHoraInicio = 10;
+  string dataHoraFim = 11;
 }
+
 
 
 message BaseStatus {

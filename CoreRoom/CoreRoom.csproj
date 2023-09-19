@@ -7,13 +7,17 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Protobuf Include="Adapters\Grpc\Protos\CoreRoom.proto" GrpcServices="Server" />
+    <None Remove="Adapters\Grpc\Protos\CoreRoom.proto" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Grpc.AspNetCore" Version="2.40.0" />
+    <PackageReference Include="Grpc.AspNetCore" Version="2.49.0" />
     <PackageReference Include="MongoDB.Bson" Version="2.21.0" />
     <PackageReference Include="MongoDB.Driver" Version="2.21.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Protobuf Include="Adapters\Grpc\Protos\CoreRoom.proto" GrpcServices="Server" />
   </ItemGroup>
 
 </Project>

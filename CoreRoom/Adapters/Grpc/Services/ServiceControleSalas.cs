@@ -1,7 +1,6 @@
 ﻿using CoreRoom.Application.Mapper;
 using CoreRoom.Ports.InputboundPort;
-using Grpc.Core;
-using System.Text.Json;
+
 
 namespace CoreRoom.Adapters.Grpc.Services
 {
@@ -13,26 +12,26 @@ namespace CoreRoom.Adapters.Grpc.Services
             _useCaseConsultar = services.GetRequiredService<IUseCaseConsultarSala>();
         }
 
-        public override Task<BaseStatus> CriarBloco(RequestControleSalas request, ServerCallContext context)
+        public override Task<BaseStatus> CriarBloco(BodyRequestSala request, ServerCallContext context)
         {
 
             return base.CriarBloco(request, context); 
         }
-        public override Task<BaseStatus> CriarSala(RequestControleSalas request, ServerCallContext context)
+        public override Task<BaseStatus> CriarSala(BodyRequestSala request, ServerCallContext context)
         {
             return base.CriarSala(request, context);
         }
-        public async override Task<BaseStatus> ConsultarSala(RequestControleSalas request, ServerCallContext context)
+        public async override Task<BaseStatus> ConsultarSala(BodyRequestSala request, ServerCallContext context)
         {
             var mapper = MapperControleSalas.ForUseCase(request);
             var usecaseRet = await _useCaseConsultar.FindByRoom(mapper);
             return BaseReturn(usecaseRet, BaseStatus.Types.enumStatus.Sucesso);
         }
-        public override Task<BaseStatus> BloquearSala(RequestControleSalas request, ServerCallContext context)
+        public override Task<BaseStatus> BloquearSala(BodyRequestSala request, ServerCallContext context)
         {
             return base.BloquearSala(request, context);
         }
-        public override Task<BaseStatus> DeletarSala(RequestControleSalas request, ServerCallContext context)
+        public override Task<BaseStatus> DeletarSala(BodyRequestSala request, ServerCallContext context)
         {
             return base.DeletarSala(request, context);
         }
