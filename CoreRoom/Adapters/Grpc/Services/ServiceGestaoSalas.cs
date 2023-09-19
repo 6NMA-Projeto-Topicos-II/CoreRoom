@@ -9,6 +9,7 @@ namespace CoreRoom.Adapters.Grpc.Services
             return base.AlocarSala(request, context);
         }
 
+
         public override Task<BaseStatus> ConsultarSala(BodyRequestSala request, ServerCallContext context)
         {
             return base.ConsultarSala(request, context);
