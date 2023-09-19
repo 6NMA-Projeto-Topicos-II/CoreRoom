@@ -19,7 +19,8 @@ namespace CoreRoom.Application.Mapper
                     NumeroSala = requestControleSalas.InfAndar.NumeroSala,
                     Auditorio = requestControleSalas.InfAndar.Auditorio,
                     laboratorio = requestControleSalas.InfAndar.Laboratorio,
-                    capacidadeDeAlunos = requestControleSalas.InfAndar.CapacidadeDeAlunos
+                    capacidadeDeAlunos = requestControleSalas.InfAndar.CapacidadeDeAlunos,
+                    
                 }
 
             };

@@ -6,6 +6,7 @@ namespace CoreRoom.Ports.OutboundPort
     public interface IMongoRepository
     {
         public Task<EntityBlockAndRoomsMongoDB> Find(InputMongoRepository input);
+        public Task<EntityBlockAndRoomsMongoDB> UpdateBlockRoom(InputMongoRepository input)
         public Task Insert(EntityBlockAndRoomsMongoDB input);
         public Task<long> remove(InputMongoRepository input);
 

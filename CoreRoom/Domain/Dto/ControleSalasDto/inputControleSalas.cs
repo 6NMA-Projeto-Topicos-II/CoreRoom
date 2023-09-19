@@ -13,6 +13,7 @@
         public int NumeroSala { get; set; }
         public bool laboratorio { get; set; }
         public bool Auditorio { get; set; }
+        public bool Bloqueada { get; set; }
         public int capacidadeDeAlunos { get; set; }
 
 
