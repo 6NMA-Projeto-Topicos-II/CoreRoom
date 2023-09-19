@@ -20,6 +20,7 @@ namespace CoreRoom.Application.Mapper
                     Auditorio = requestControleSalas.InfAndar.Auditorio,
                     laboratorio = requestControleSalas.InfAndar.Laboratorio,
                     capacidadeDeAlunos = requestControleSalas.InfAndar.CapacidadeDeAlunos,
+                    Bloqueada = requestControleSalas.InfAndar.Bloqueada
                     
                 }
 
@@ -36,7 +37,8 @@ namespace CoreRoom.Application.Mapper
                 numeroSala = input.Infsala.NumeroSala,
                 laboratorio = input.Infsala.laboratorio,
                 Auditorio = input.Infsala.laboratorio,
-                capacidadeDeAlunos = input.Infsala.capacidadeDeAlunos
+                capacidadeDeAlunos = input.Infsala.capacidadeDeAlunos,
+                Bloqueada = input.Infsala.Bloqueada
             };
         }
         public static ResponseConsultaSalasControle ForResponseConsultaSala(EntityBlockAndRoomsMongoDB ResponseMongo, inputControleSalas inputControle)

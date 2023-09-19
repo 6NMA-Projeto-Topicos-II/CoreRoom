@@ -1,4 +1,5 @@
 ﻿using CoreRoom.Application.Mapper;
+using CoreRoom.Domain;
 using CoreRoom.Ports.InputboundPort;
 using Grpc.Core;
 
@@ -7,9 +8,11 @@ namespace CoreRoom.Adapters.Grpc.Services
     public class ServiceControleSalas : ControleSalasService.ControleSalasServiceBase
     {
         private readonly IUseCaseConsultarSala _useCaseConsultar;
+        private readonly IUseCaseBloquearSala _useCaseBloquear;
         public ServiceControleSalas(IServiceProvider services)
         {
             _useCaseConsultar = services.GetRequiredService<IUseCaseConsultarSala>();
+            _useCaseBloquear = services.GetRequiredService<IUseCaseBloquearSala>();
         }
 
         public override Task<BaseStatus> CriarBloco(BodyRequestSala request, ServerCallContext context)
@@ -25,13 +28,20 @@ namespace CoreRoom.Adapters.Grpc.Services
         {
             try
             {
-                var mapper = MapperControleSalas.ForUseCase(request);
-                if(string.IsNullOrEmpty(mapper.Bloco) || request.InfAndar.NumeroSala == 0)
+                if (string.IsNullOrEmpty(request.Bloco) || request.InfAndar.NumeroSala == 0)
                     return BaseReturn("Obrigatorio passar Bloco e Numero da sala", BaseStatus.Types.enumStatus.Negocio);
 
+                var mapper = MapperControleSalas.ForUseCase(request);
+
                 var usecaseRet = await _useCaseConsultar.FindByRoom(mapper);
+
                 return BaseReturn(usecaseRet, BaseStatus.Types.enumStatus.Sucesso);
-            }catch(Exception ex)
+            }
+            catch (BusinessException ex)
+            {
+                return BaseReturn(ex.Message, BaseStatus.Types.enumStatus.Negocio);
+            }
+            catch (Exception ex)
             {
                 return BaseReturn(ex.Message, BaseStatus.Types.enumStatus.Sistema);
             }
@@ -40,12 +50,17 @@ namespace CoreRoom.Adapters.Grpc.Services
         {
             try
             {
-                var mapper = MapperControleSalas.ForUseCase(request);
-                if (string.IsNullOrEmpty(mapper.Bloco) || request.InfAndar.NumeroSala == 0)
+                if (string.IsNullOrEmpty(request.Bloco) || request.InfAndar.NumeroSala == 0)
                     return BaseReturn("Obrigatorio passar Bloco e Numero da sala", BaseStatus.Types.enumStatus.Negocio);
 
-                var usecaseRet = await _useCaseConsultar.FindByRoom(mapper);
+                var mapper = MapperControleSalas.ForUseCase(request);
+
+                var usecaseRet = await _useCaseBloquear.BlockRoom(mapper);
                 return BaseReturn(usecaseRet, BaseStatus.Types.enumStatus.Sucesso);
+            }
+            catch(BusinessException ex)
+            {
+                return BaseReturn(ex.Message, BaseStatus.Types.enumStatus.Negocio);
             }
             catch (Exception ex)
             {

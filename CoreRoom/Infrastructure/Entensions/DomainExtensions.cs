@@ -8,6 +8,7 @@ namespace CoreRoom.Infrastructure.Entensions
          public static void AddDomainExtensions(this IServiceCollection services)
         {
             services.AddScoped<IUseCaseConsultarSala, UseCaseConsultarSala>();
+            services.AddScoped<IUseCaseBloquearSala, UseCaseBloquearSala>();
         }
     }
 }
