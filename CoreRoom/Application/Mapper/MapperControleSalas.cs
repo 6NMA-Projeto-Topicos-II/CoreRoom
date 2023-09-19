@@ -9,8 +9,17 @@ namespace CoreRoom.Application.Mapper
         {
             return new inputControleSalas
             {
-                Bloco =char.Parse( requestControleSalas.Bloco),
-                NumeroAndares= requestControleSalas.,
+                Bloco = requestControleSalas.Bloco ?? "" ,
+                NumeroAndares = requestControleSalas.NumeroDeAndares,
+                NumeroDeSalas = requestControleSalas.NumeroDeSalas,
+                Infsala = new InfAndares
+                {
+                    NumeroDoAndar = requestControleSalas.InfAndar.NumeroDoAndar,
+                    NumeroSala = requestControleSalas.InfAndar.NumeroSala,
+                    Auditorio = requestControleSalas.InfAndar.Auditorio,
+                    laboratorio = requestControleSalas.InfAndar.Laboratorio,
+                    capacidadeDeAlunos = requestControleSalas.InfAndar.CapacidadeDeAlunos
+                }
 
             };
         }
@@ -18,7 +27,14 @@ namespace CoreRoom.Application.Mapper
         {
             return new InputMongoRepository
             {
-                bloco = char.Parse(input.Bloco)
+                bloco = input.Bloco,
+                NumeroAndares = input.NumeroAndares,
+                NumeroDeSalas = input.NumeroDeSalas,
+                NumeroDoAndar = input.Infsala.NumeroDoAndar,
+                numeroSala = input.Infsala.NumeroSala,
+                laboratorio = input.Infsala.laboratorio,
+                Auditorio = input.Infsala.laboratorio,
+                capacidadeDeAlunos = input.Infsala.capacidadeDeAlunos
             };
         }
     }

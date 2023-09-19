@@ -1,6 +1,6 @@
 ﻿using CoreRoom.Application.Mapper;
 using CoreRoom.Ports.InputboundPort;
-
+using Grpc.Core;
 
 namespace CoreRoom.Adapters.Grpc.Services
 {
@@ -24,6 +24,9 @@ namespace CoreRoom.Adapters.Grpc.Services
         public async override Task<BaseStatus> ConsultarSala(BodyRequestSala request, ServerCallContext context)
         {
             var mapper = MapperControleSalas.ForUseCase(request);
+            if(string.IsNullOrEmpty(mapper.Bloco) || request.InfAndar.NumeroSala == 0)
+                return BaseReturn("Obrigatorio passar Bloco e Numero da sala", BaseStatus.Types.enumStatus.Negocio);
+
             var usecaseRet = await _useCaseConsultar.FindByRoom(mapper);
             return BaseReturn(usecaseRet, BaseStatus.Types.enumStatus.Sucesso);
         }

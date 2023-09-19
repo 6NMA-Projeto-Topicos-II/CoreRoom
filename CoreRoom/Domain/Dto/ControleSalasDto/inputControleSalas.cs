@@ -2,7 +2,7 @@
 {
     public struct inputControleSalas
     {
-        public char Bloco { get; set; }
+        public string Bloco { get; set; }
         public int NumeroAndares { get; set; }
         public int NumeroDeSalas { get; set; }
         public InfAndares Infsala { get; set; }
