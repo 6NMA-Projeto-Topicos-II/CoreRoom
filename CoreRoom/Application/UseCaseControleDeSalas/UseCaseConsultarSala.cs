@@ -17,7 +17,8 @@ namespace CoreRoom.Application.UseCaseControleDeSalas
         {
             var mapper = MapperControleSalas.ForRepository(input);
             var ret = await _repository.Find(mapper);
-            var response = ret.InfAndares.Select(x => x.NumeroSala = input.Infsala.NumeroSala).FirstOrDefault();
+            var response = MapperControleSalas.ForResponseConsultaSala(ret, input);
+
             var messageRet = JsonSerializer.Serialize(response);
             return messageRet;
         }

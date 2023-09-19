@@ -12,10 +12,10 @@ namespace CoreRoom.Domain.Entities
         public string Bloco { get; set; }
         [BsonElement("Responsavel")]
         public string Responsavel { get; set; }
-        [BsonElement("Andares")]
-        public int Andares { get; set; }
-        [BsonElement("NumeroDeSalas")]
-        public int NumeroDeSalas { get; set; }
+        [BsonElement("TotalDeAndares")]
+        public int TotalDeAndares { get; set; }
+        [BsonElement("TotalDeSalas")]
+        public int TotalDeSalas { get; set; }
         [BsonElement("InfAndares")]
         public IList<Floorinformation> InfAndares { get; set; }
 

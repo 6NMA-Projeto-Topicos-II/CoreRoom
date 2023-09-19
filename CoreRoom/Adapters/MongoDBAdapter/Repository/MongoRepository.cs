@@ -23,16 +23,8 @@ namespace CoreRoom.Adapters.MongoDBAdapter.Repository
         }
         public async Task<EntityBlockAndRoomsMongoDB> Find(InputMongoRepository input)
         {
-            try
-            {
-
-                var ret = await _Collection.FindAsync(x => x.Bloco == input.bloco );
-                return ret.FirstOrDefault();
-            }catch(Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-                throw;
-            }
+            var ret = await _Collection.FindAsync(x => x.Bloco == input.bloco );
+            return ret.FirstOrDefault();
         }
 
         public async Task Insert(EntityBlockAndRoomsMongoDB input)
