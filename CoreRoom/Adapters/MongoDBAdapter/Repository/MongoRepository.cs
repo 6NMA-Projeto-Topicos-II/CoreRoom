@@ -21,23 +21,16 @@ namespace CoreRoom.Adapters.MongoDBAdapter.Repository
             _Collection = mongoDatabase.GetCollection<EntityBlockAndRoomsMongoDB>(
                 settings.Value.CollectionName);
         }
-        public async Task<EntityBlockAndRoomsMongoDB> Find(InputMongoRepository input)
-        {
-            var ret = await _Collection.FindAsync(x => x.Bloco == input.bloco );
-            return ret.FirstOrDefault();
-        }
+        public async Task<EntityBlockAndRoomsMongoDB> Find(InputMongoRepository input) 
+            => (await _Collection.FindAsync(x => x.Bloco == input.bloco)).FirstOrDefault();
 
         public async Task Insert(EntityBlockAndRoomsMongoDB input)
-        {
-            await _Collection.InsertOneAsync(input);
-        }
-
+           => await _Collection.InsertOneAsync(input);
+        
         public async Task<long> remove(InputMongoRepository input)
-        {
-            var ret = await _Collection.DeleteOneAsync(x => x.Bloco == input.bloco && x.id == input.id);
+           =>( await _Collection.DeleteOneAsync(x => x.Bloco == input.bloco && x.id == input.id)).DeletedCount;
 
-            return ret.DeletedCount;
-        }
+        
 
     }
 }
