@@ -1,6 +1,7 @@
 ﻿using CoreRoom.Application.Mapper;
 using CoreRoom.Domain;
 using CoreRoom.Domain.Dto.ControleSalasDto;
+using CoreRoom.Domain.Entities;
 using CoreRoom.Ports.InputboundPort;
 using CoreRoom.Ports.OutboundPort;
 
@@ -41,9 +42,31 @@ namespace CoreRoom.Application.UseCaseControleDeSalas
                 Professor = ""
             });
 
+            findblock.InfAndares = OrganizaListaDeSalas(findblock.InfAndares);
+
             var ret = await _repository.UpdateBlock(findblock);
 
             return ret;
         }
+
+        public IList<Floorinformation> OrganizaListaDeSalas(IList<Floorinformation> listaAntiga)
+        {
+            var novaLista = new List<Floorinformation>();
+
+            while(listaAntiga.Count != 0)
+            {
+                var menorNumeroSala = listaAntiga.Select(x => x.NumeroSala).Min();
+
+                var menorObjeto = listaAntiga.Where(x => x.NumeroSala == menorNumeroSala).First();
+
+                novaLista.Add(menorObjeto);
+
+                listaAntiga.Remove(menorObjeto);
+
+            }
+
+            return novaLista;
+        }
+
     }
 }
