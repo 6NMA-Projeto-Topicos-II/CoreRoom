@@ -10,6 +10,7 @@ namespace CoreRoom.Ports.OutboundPort
         public Task<string> UpdateBlockRoom(InputMongoRepository input);
         public Task Insert(EntityBlockAndRoomsMongoDB input);
         public Task<long> remove(InputMongoRepository input);
+        public Task<string> UpdateBlock(EntityBlockAndRoomsMongoDB input);
 
     }
 }

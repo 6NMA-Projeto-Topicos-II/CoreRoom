@@ -58,5 +58,18 @@ namespace CoreRoom.Adapters.MongoDBAdapter.Repository
 
             return "Bloqueio atualizado com sucesso";
         }
+        public async Task<string> UpdateBlock(EntityBlockAndRoomsMongoDB input)
+        {
+            var filtro = Builders<EntityBlockAndRoomsMongoDB>.Filter.Eq(x => x.id, input.id);
+
+            var atualizacao = Builders<EntityBlockAndRoomsMongoDB>.Update.Set("InfAndares", input.InfAndares);
+            var ret = await _Collection.UpdateOneAsync(filter: filtro, update: atualizacao);
+
+            if (ret.ModifiedCount == 0)
+                throw new BusinessException("Erro ao criar sala");
+
+            return "sala criada com sucesso";
+        }
+
     }
 }

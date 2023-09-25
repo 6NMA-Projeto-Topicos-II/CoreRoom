@@ -1,4 +1,5 @@
 ﻿using CoreRoom.Application.Mapper;
+using CoreRoom.Application.Validation;
 using CoreRoom.Domain;
 using CoreRoom.Ports.InputboundPort;
 using Grpc.Core;
@@ -9,10 +10,12 @@ namespace CoreRoom.Adapters.Grpc.Services
     {
         private readonly IUseCaseConsultarSala _useCaseConsultar;
         private readonly IUseCaseBloquearSala _useCaseBloquear;
+        private readonly IUseCaseCriarSala _useCaseCriarSala;
         public ServiceControleSalas(IServiceProvider services)
         {
             _useCaseConsultar = services.GetRequiredService<IUseCaseConsultarSala>();
             _useCaseBloquear = services.GetRequiredService<IUseCaseBloquearSala>();
+            _useCaseCriarSala = services.GetRequiredService<IUseCaseCriarSala>();
         }
 
         public override Task<BaseStatus> CriarBloco(BodyRequestSala request, ServerCallContext context)
@@ -20,16 +23,32 @@ namespace CoreRoom.Adapters.Grpc.Services
 
             return base.CriarBloco(request, context); 
         }
-        public override Task<BaseStatus> CriarSala(BodyRequestSala request, ServerCallContext context)
+        public async override Task<BaseStatus> CriarSala(BodyRequestSala request, ServerCallContext context)
         {
-            return base.CriarSala(request, context);
+            try
+            {
+                ValidationService.ValidaServiceControleNewRoom(request);
+
+                var mapper = MapperControleSalas.ForUseCase(request);
+
+                var usecaseRet = await _useCaseCriarSala.NewRoom(mapper);
+
+                return BaseReturn(usecaseRet, BaseStatus.Types.enumStatus.Sucesso);
+            }
+            catch (BusinessException ex)
+            {
+                return BaseReturn(ex.Message, BaseStatus.Types.enumStatus.Negocio);
+            }
+            catch (Exception ex)
+            {
+                return BaseReturn(ex.Message, BaseStatus.Types.enumStatus.Sistema);
+            }
         }
         public async override Task<BaseStatus> ConsultarSala(BodyRequestSala request, ServerCallContext context)
         {
             try
             {
-                if (string.IsNullOrEmpty(request.Bloco) || request.InfAndar.NumeroSala == 0)
-                    return BaseReturn("Obrigatorio passar Bloco e Numero da sala", BaseStatus.Types.enumStatus.Negocio);
+                ValidationService.ValidaServiceControle(request);
 
                 var mapper = MapperControleSalas.ForUseCase(request);
 
@@ -50,8 +69,7 @@ namespace CoreRoom.Adapters.Grpc.Services
         {
             try
             {
-                if (string.IsNullOrEmpty(request.Bloco) || request.InfAndar.NumeroSala == 0)
-                    return BaseReturn("Obrigatorio passar Bloco e Numero da sala", BaseStatus.Types.enumStatus.Negocio);
+                ValidationService.ValidaServiceControle(request);
 
                 var mapper = MapperControleSalas.ForUseCase(request);
 
