@@ -11,11 +11,13 @@ namespace CoreRoom.Adapters.Grpc.Services
         private readonly IUseCaseConsultarSala _useCaseConsultar;
         private readonly IUseCaseBloquearSala _useCaseBloquear;
         private readonly IUseCaseCriarSala _useCaseCriarSala;
+        private readonly IUseCaseDeletarSala _useCaseDeletarSala;
         public ServiceControleSalas(IServiceProvider services)
         {
             _useCaseConsultar = services.GetRequiredService<IUseCaseConsultarSala>();
             _useCaseBloquear = services.GetRequiredService<IUseCaseBloquearSala>();
             _useCaseCriarSala = services.GetRequiredService<IUseCaseCriarSala>();
+            _useCaseDeletarSala = services.GetRequiredService<IUseCaseDeletarSala>();
         }
 
         public override Task<BaseStatus> CriarBloco(BodyRequestSala request, ServerCallContext context)
@@ -74,6 +76,7 @@ namespace CoreRoom.Adapters.Grpc.Services
                 var mapper = MapperControleSalas.ForUseCase(request);
 
                 var usecaseRet = await _useCaseBloquear.BlockRoom(mapper);
+
                 return BaseReturn(usecaseRet, BaseStatus.Types.enumStatus.Sucesso);
             }
             catch(BusinessException ex)
@@ -85,9 +88,26 @@ namespace CoreRoom.Adapters.Grpc.Services
                 return BaseReturn(ex.Message, BaseStatus.Types.enumStatus.Sistema);
             }
         }
-        public override Task<BaseStatus> DeletarSala(BodyRequestSala request, ServerCallContext context)
+        public async override Task<BaseStatus> DeletarSala(BodyRequestSala request, ServerCallContext context)
         {
-            return base.DeletarSala(request, context);
+            try
+            {
+                ValidationService.ValidaServiceControle(request);
+
+                var mapper = MapperControleSalas.ForUseCase(request);
+
+                var usecaseRet = await _useCaseDeletarSala.DeleteRoom(mapper);
+
+                return BaseReturn(usecaseRet, BaseStatus.Types.enumStatus.Sucesso);
+            }
+            catch (BusinessException ex)
+            {
+                return BaseReturn(ex.Message, BaseStatus.Types.enumStatus.Negocio);
+            }
+            catch (Exception ex)
+            {
+                return BaseReturn(ex.Message, BaseStatus.Types.enumStatus.Sistema);
+            }
         }
         public BaseStatus BaseReturn( string ret, BaseStatus.Types.enumStatus enumMessage)
         {

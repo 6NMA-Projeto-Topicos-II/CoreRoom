@@ -66,9 +66,9 @@ namespace CoreRoom.Adapters.MongoDBAdapter.Repository
             var ret = await _Collection.UpdateOneAsync(filter: filtro, update: atualizacao);
 
             if (ret.ModifiedCount == 0)
-                throw new BusinessException("Erro ao criar sala");
+                throw new BusinessException("Erro ao Atualizar bloco");
 
-            return "sala criada com sucesso";
+            return "Sucesso";
         }
 
     }
