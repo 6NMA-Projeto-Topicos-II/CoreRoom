@@ -10,7 +10,7 @@ namespace CoreRoom.Application.Mapper
         {
             return new inputControleSalas
             {
-                Bloco = requestControleSalas.Bloco ?? "" ,
+                Bloco = requestControleSalas.Bloco ?? "",
                 NumeroAndares = requestControleSalas.NumeroDeAndares,
                 NumeroDeSalas = requestControleSalas.NumeroDeSalas,
                 Infsala = new InfAndares

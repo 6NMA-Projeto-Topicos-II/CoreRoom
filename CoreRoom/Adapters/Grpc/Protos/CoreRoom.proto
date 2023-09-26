@@ -15,7 +15,6 @@ service ControleSalasService {
   rpc DeletarSala (BodyRequestSala) returns (BaseStatus);
 }
 service GestaoSalasService {
-  rpc ConsultarSala (BodyRequestSala) returns (BaseStatus);
   rpc AlocarSala (BodyRequestSala) returns (BaseStatus);
   rpc Desalocar (BodyRequestSala) returns (BaseStatus);
   rpc ConsultarSalaAlocada (BodyRequestSala) returns (BaseStatus);

@@ -17,7 +17,6 @@ namespace CoreRoom.Adapters.Grpc.Services
 
         public override Task<BaseStatus> CriarBloco(BodyRequestSala request, ServerCallContext context)
         {
-
             return base.CriarBloco(request, context); 
         }
         public override Task<BaseStatus> CriarSala(BodyRequestSala request, ServerCallContext context)
