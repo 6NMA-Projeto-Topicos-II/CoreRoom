@@ -6,12 +6,12 @@ using CoreRoom.Ports.OutboundPort;
 
 namespace CoreRoom.Application.UseCaseControleDeSalas
 {
-    public class UseCaseDeletarSala : IUseCaseDeletarSala
+    public class UseCaseDeletarSala : BaseUseCase, IUseCaseDeletarSala
     {
-        private readonly IMongoRepository _repository;
-        public UseCaseDeletarSala(IMongoRepository repository)
+
+        public UseCaseDeletarSala(IMongoRepository repository) : base(repository)
         {
-            _repository = repository;
+
         }
         public async Task<string> DeleteRoom(inputControleSalas input)
         {

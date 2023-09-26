@@ -6,12 +6,10 @@ using CoreRoom.Ports.OutboundPort;
 
 namespace CoreRoom.Application.UseCaseControleDeSalas
 {
-    public class UseCaseBloquearSala : IUseCaseBloquearSala
+    public class UseCaseBloquearSala : BaseUseCase, IUseCaseBloquearSala
     {
-        private readonly IMongoRepository _repository;
-        public UseCaseBloquearSala(IMongoRepository repository)
+        public UseCaseBloquearSala(IMongoRepository repository) : base(repository)
         {
-            _repository = repository;
         }
         public async Task<string> BlockRoom(inputControleSalas input)
         {

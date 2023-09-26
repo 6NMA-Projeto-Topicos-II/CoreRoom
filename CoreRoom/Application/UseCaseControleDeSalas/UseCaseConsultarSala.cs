@@ -7,12 +7,10 @@ using System.Text.Json;
 
 namespace CoreRoom.Application.UseCaseControleDeSalas
 {
-    public class UseCaseConsultarSala : IUseCaseConsultarSala
+    public class UseCaseConsultarSala : BaseUseCase, IUseCaseConsultarSala
     {
-        private readonly IMongoRepository _repository;
-        public UseCaseConsultarSala(IMongoRepository repository)
+        public UseCaseConsultarSala(IMongoRepository repository) : base(repository)
         {
-            _repository = repository;
         }
         public async Task<string> FindByRoom(inputControleSalas input)
         {

@@ -12,12 +12,14 @@ namespace CoreRoom.Adapters.Grpc.Services
         private readonly IUseCaseBloquearSala _useCaseBloquear;
         private readonly IUseCaseCriarSala _useCaseCriarSala;
         private readonly IUseCaseDeletarSala _useCaseDeletarSala;
+        private readonly IUseCaseListarSalas _useCaseListarSalas;
         public ServiceControleSalas(IServiceProvider services)
         {
             _useCaseConsultar = services.GetRequiredService<IUseCaseConsultarSala>();
             _useCaseBloquear = services.GetRequiredService<IUseCaseBloquearSala>();
             _useCaseCriarSala = services.GetRequiredService<IUseCaseCriarSala>();
             _useCaseDeletarSala = services.GetRequiredService<IUseCaseDeletarSala>();
+            _useCaseListarSalas = services.GetRequiredService<IUseCaseListarSalas>();
         }
 
         public override Task<BaseStatus> CriarBloco(BodyRequestSala request, ServerCallContext context)
@@ -97,6 +99,27 @@ namespace CoreRoom.Adapters.Grpc.Services
                 var mapper = MapperControleSalas.ForUseCase(request);
 
                 var usecaseRet = await _useCaseDeletarSala.DeleteRoom(mapper);
+
+                return BaseReturn(usecaseRet, BaseStatus.Types.enumStatus.Sucesso);
+            }
+            catch (BusinessException ex)
+            {
+                return BaseReturn(ex.Message, BaseStatus.Types.enumStatus.Negocio);
+            }
+            catch (Exception ex)
+            {
+                return BaseReturn(ex.Message, BaseStatus.Types.enumStatus.Sistema);
+            }
+        }
+        public async override Task<BaseStatus> ListarSalas(BodyRequestSala request, ServerCallContext context)
+        {
+            try
+            {
+                ValidationService.ValidaServiceControle(request);
+
+                var mapper = MapperControleSalas.ForUseCase(request);
+
+                var usecaseRet = await _useCaseListarSalas.ListRoom(mapper);
 
                 return BaseReturn(usecaseRet, BaseStatus.Types.enumStatus.Sucesso);
             }

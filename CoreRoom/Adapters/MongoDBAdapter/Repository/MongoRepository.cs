@@ -56,7 +56,7 @@ namespace CoreRoom.Adapters.MongoDBAdapter.Repository
             if (ret.ModifiedCount == 0)
                 throw new BusinessException("Erro ao Alterar Bloqueio de sala");
 
-            return "Bloqueio atualizado com sucesso";
+            return "Sucesso";
         }
         public async Task<string> UpdateBlock(EntityBlockAndRoomsMongoDB input)
         {

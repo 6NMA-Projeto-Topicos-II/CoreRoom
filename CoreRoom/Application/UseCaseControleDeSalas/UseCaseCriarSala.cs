@@ -7,12 +7,10 @@ using CoreRoom.Ports.OutboundPort;
 
 namespace CoreRoom.Application.UseCaseControleDeSalas
 {
-    public class UseCaseCriarSala : IUseCaseCriarSala
+    public class UseCaseCriarSala : BaseUseCase, IUseCaseCriarSala
     {
-        private readonly IMongoRepository _repository;
-        public UseCaseCriarSala(IMongoRepository repository)
+        public UseCaseCriarSala(IMongoRepository repository) : base(repository) 
         {
-            _repository = repository;
         }
         public async Task<string> NewRoom(inputControleSalas input)
         {
