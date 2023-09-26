@@ -12,6 +12,7 @@ namespace CoreRoom.Infrastructure.Entensions
             services.AddScoped<IUseCaseCriarSala, UseCaseCriarSala>();
             services.AddScoped<IUseCaseDeletarSala, UseCaseDeletarSala>();
             services.AddScoped<IUseCaseListarSalas, UseCaseListarSalas>();
+            services.AddScoped<IUseCaseCriarBloco, UseCaseCriarBloco>();
         }
     }
 }

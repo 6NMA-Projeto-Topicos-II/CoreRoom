@@ -13,6 +13,7 @@ namespace CoreRoom.Adapters.Grpc.Services
         private readonly IUseCaseCriarSala _useCaseCriarSala;
         private readonly IUseCaseDeletarSala _useCaseDeletarSala;
         private readonly IUseCaseListarSalas _useCaseListarSalas;
+        private readonly IUseCaseCriarBloco _useCaseCriarBloco;
         public ServiceControleSalas(IServiceProvider services)
         {
             _useCaseConsultar = services.GetRequiredService<IUseCaseConsultarSala>();
@@ -20,12 +21,30 @@ namespace CoreRoom.Adapters.Grpc.Services
             _useCaseCriarSala = services.GetRequiredService<IUseCaseCriarSala>();
             _useCaseDeletarSala = services.GetRequiredService<IUseCaseDeletarSala>();
             _useCaseListarSalas = services.GetRequiredService<IUseCaseListarSalas>();
+            _useCaseCriarBloco = services.GetRequiredService<IUseCaseCriarBloco>();
         }
 
-        public override Task<BaseStatus> CriarBloco(BodyRequestSala request, ServerCallContext context)
+        public async override Task<BaseStatus> CriarBloco(BodyRequestSala request, ServerCallContext context)
         {
 
-            return base.CriarBloco(request, context); 
+            try
+            {
+                ValidationService.ValidaBlocoServiceControle(request);
+
+                var mapper = MapperControleSalas.ForUseCase(request);
+
+                var usecaseRet = await _useCaseCriarBloco.NewBlock(mapper);
+
+                return BaseReturn(usecaseRet, BaseStatus.Types.enumStatus.Sucesso);
+            }
+            catch (BusinessException ex)
+            {
+                return BaseReturn(ex.Message, BaseStatus.Types.enumStatus.Negocio);
+            }
+            catch (Exception ex)
+            {
+                return BaseReturn(ex.Message, BaseStatus.Types.enumStatus.Sistema);
+            }
         }
         public async override Task<BaseStatus> CriarSala(BodyRequestSala request, ServerCallContext context)
         {

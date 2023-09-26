@@ -10,6 +10,20 @@ namespace CoreRoom.Application.Validation
             if (string.IsNullOrEmpty(bodyRequest.Bloco) || bodyRequest.InfAndar.NumeroSala == 0)
                 throw new BusinessException( "Obrigatorio passar Bloco e Numero da sala");
         }
+        public static void ValidaBlocoServiceControle(BodyRequestSala bodyRequest)
+        {
+            if (string.IsNullOrEmpty(bodyRequest.Bloco) )
+                throw new BusinessException("Obrigatorio passar Bloco ");
+
+            if ( bodyRequest.Bloco.Count() != 1)
+                throw new BusinessException("Apenas uma letra simbolizando o Bloco");
+
+            if (bodyRequest.NumeroDeSalas == 0)
+                throw new BusinessException("Obrigatorio informar o numero total de salas do bloco");
+
+            if (bodyRequest.NumeroDeAndares == 0)
+                throw new BusinessException("Obrigatorio informar o numero total de Andares do bloco");
+        }
         public static void ValidaServiceControleNewRoom(BodyRequestSala bodyRequest)
         {
             ValidaServiceControle(bodyRequest);
